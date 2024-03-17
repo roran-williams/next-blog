@@ -14,7 +14,7 @@ const Topics: React.FC<TopicsProps> = (props) => {
           <Link
             key={`topic_${index}`} // Added key prop for React list items
             className="nav-link link-body-emphasis"
-            href={`../blogs/${topic}`}
+            href={`../blog/${topic}`}
             onClick={() => props.handleTopicClick(topic)}
           >
             {topic}
