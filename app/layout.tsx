@@ -15,10 +15,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const handleTopicClick = (topic: string) => {
+    console.log(topic);
+  }
   return (
     <html lang="en">
       <body>
-        <Header />
+        <Header handleTopicClick={handleTopicClick}/>
         {children}
       </body>
     </html>
