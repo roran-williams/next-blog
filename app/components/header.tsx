@@ -17,8 +17,8 @@ const Header: React.FC<HeaderProps> = (props) => {
             </Link>
           </div>
           <div className="col-4 text-center">
-            <Link href="#" className="blog-header-logo text-body-emphasis text-decoration-none">
-              roran-williams
+            <Link href="/" className="blog-header-logo text-body-emphasis text-decoration-none">
+              Home
             </Link>
           </div>
           <div className="col-4 d-flex justify-content-end align-items-center">

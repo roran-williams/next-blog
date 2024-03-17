@@ -27,7 +27,7 @@ export default function FeaturePost(props: FeaturePostProps) {
       try {
         const response = await fetch("https://automatic-acorn-7qgw6q65q5vcppq6-8000.app.github.dev/api/roran-williams/blogs/1/", {
           headers: {
-            Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEwNjczMDY0LCJpYXQiOjE3MTA2Njk0NjQsImp0aSI6ImYxMGUxZDI0NzMzMTQ4ZjZiNWI5NzlmMjYyMDEyNjljIiwidXNlcl9pZCI6Mn0.lJBOaC8RffGQwm3_vOvGbSkdo8tmRwf6CqUVAr3RUkc"
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEwNjg1Mzg4LCJpYXQiOjE3MTA2ODE3ODgsImp0aSI6ImE2MWI1NzViZjRmYTRhYjhiYWNkZGMzMDBkMTU1NTAwIiwidXNlcl9pZCI6Mn0.TyW4qAe1Ux1H4e0A8FgpSnwyZZvVtGKYVkqe2GDgZss"
           }
         });
 
@@ -64,7 +64,7 @@ export default function FeaturePost(props: FeaturePostProps) {
     <div>
       <div className="row">
         <div className="col-lg-6 px-0">
-          <h1 className="display-4 fst-italic">{blog.title} {props.topic}</h1>
+          <h1 className="display-4 fst-italic">{blog.title}{props.topic}</h1>
           <p className="lead my-3">{blog.content}</p>
           <p className="lead mb-0">
             <Link href="#" className="text-body-emphasis fw-bold">
