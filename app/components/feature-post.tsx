@@ -25,9 +25,9 @@ export default function FeaturePost(props: FeaturePostProps) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch("https://automatic-acorn-7qgw6q65q5vcppq6-8000.app.github.dev/api/roran-williams/blogs/1/", {
+        const response = await fetch("http://localhost:8000/api/roran-williams/blogs/1", {
           headers: {
-            Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEwNjg1Mzg4LCJpYXQiOjE3MTA2ODE3ODgsImp0aSI6ImE2MWI1NzViZjRmYTRhYjhiYWNkZGMzMDBkMTU1NTAwIiwidXNlcl9pZCI6Mn0.TyW4qAe1Ux1H4e0A8FgpSnwyZZvVtGKYVkqe2GDgZss"
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzExMTM0ODk3LCJpYXQiOjE3MTA3NzQ4OTcsImp0aSI6Ijc3MmUwMWM0YjRlMzRiNWE4Yzk5NGU1YzliYTJiMDFhIiwidXNlcl9pZCI6M30._qsxUpNvZnoYaJ0BAhLsCudsq7JimQTfUcLhhg0GsFo"
           }
         });
 
@@ -65,7 +65,7 @@ export default function FeaturePost(props: FeaturePostProps) {
       <div className="row">
         <div className="col-lg-6 px-0">
           <h1 className="display-4 fst-italic">{blog.title}{props.topic}</h1>
-          <p className="lead my-3">{blog.content}</p>
+          <p className="lead my-3">{blog.content.substring(0, 450)}</p>
           <p className="lead mb-0">
             <Link href="#" className="text-body-emphasis fw-bold">
               Continue reading...
@@ -74,7 +74,7 @@ export default function FeaturePost(props: FeaturePostProps) {
         </div>
 
         <div className="col-lg-6 ">
-          <Image className="rounded img-fluid" alt="feature post image" src="https://source.unsplash.com/500/300/?health" width={500} height={300} />
+          <Image className="rounded img-fluid" alt="feature post image" src={blog.image} width={500} height={300} />
         </div>
       </div>
     </div>
