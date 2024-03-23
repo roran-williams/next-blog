@@ -14,7 +14,7 @@ const Topics: React.FC<TopicsProps> = (props) => {
           <Link
             key={`topic_${index}`} // Added key prop for React list items
             className="nav-link link-body-emphasis"
-            href={`../blog/${topic}`}
+            href={`/blogs/${topic}`}
             onClick={() => props.handleTopicClick(topic)}
           >
             {topic}
@@ -23,6 +23,6 @@ const Topics: React.FC<TopicsProps> = (props) => {
       </nav>
     </div>
   );
-}
+};
 
 export default Topics;
