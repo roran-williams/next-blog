@@ -1,5 +1,5 @@
-"use client"
-import React, { useState, useEffect } from 'react';
+"use client";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -24,13 +24,16 @@ export default function FeaturePost(props: FeaturePostProps) {
 
   useEffect(() => {
     async function fetchData() {
+      const url =
+        "https://scrftc-8000.csb.app/api/roran-williams/blogs/topic/?topic='Health'";
       try {
-        const response = await fetch("http://localhost:8000/api/roran-williams/blogs/1", {
+        const response = await fetch(url, {
           headers: {
-            Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzExMTM0ODk3LCJpYXQiOjE3MTA3NzQ4OTcsImp0aSI6Ijc3MmUwMWM0YjRlMzRiNWE4Yzk5NGU1YzliYTJiMDFhIiwidXNlcl9pZCI6M30._qsxUpNvZnoYaJ0BAhLsCudsq7JimQTfUcLhhg0GsFo"
-          }
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzExNjQ3Mzg3LCJpYXQiOjE3MTEyODczODcsImp0aSI6IjEzYjdjODZkMzA3ZDRhMjViNjQ2NGNkMjEyOWRmNmFhIiwidXNlcl9pZCI6M30.ETT43wWJ-pB3qUH54mR9cyN4guNvQNP1VWH9WrM21NA",
+          },
         });
-
+        console.log(url);
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
@@ -46,7 +49,7 @@ export default function FeaturePost(props: FeaturePostProps) {
     }
 
     fetchData();
-  }, []);
+  }, [props.topic]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -64,17 +67,31 @@ export default function FeaturePost(props: FeaturePostProps) {
     <div>
       <div className="row">
         <div className="col-lg-6 px-0">
-          <h1 className="display-4 fst-italic">{blog.title}{props.topic}</h1>
-          <p className="lead my-3">{blog.content.substring(0, 450)}</p>
+          <h1 className="display-4 fst-italic">
+            {blog.title} {props.topic}
+          </h1>
+          <p className="lead my-3">{blog.content}</p>
           <p className="lead mb-0">
-            <Link href="#" className="text-body-emphasis fw-bold">
+            <Link href="#" className="text-body-emphasis fw-bold" passHref>
               Continue reading...
             </Link>
           </p>
         </div>
 
-        <div className="col-lg-6 ">
-          <Image className="rounded img-fluid" alt="feature post image" src={blog.image} width={500} height={300} />
+        <div className="col-lg-6">
+          {blog.image && ( // Check if blog.image is not null or undefined
+            <Image
+              className="rounded img-fluid"
+              alt="feature post image"
+              src={blog.image}
+              width={500}
+              height={300}
+              onError={(e) => {
+                // Handle error if image fails to load
+                console.error("Error loading image:", e);
+              }}
+            />
+          )}
         </div>
       </div>
     </div>

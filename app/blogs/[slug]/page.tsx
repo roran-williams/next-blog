@@ -5,7 +5,7 @@ const Home = () => {
     <>
       <main className="container">
         <div className="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary ">
-          <FeaturePost topic="Home" />
+          <FeaturePost topic="Health" />
         </div>
       </main>
     </>
