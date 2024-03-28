@@ -20,7 +20,7 @@ async function fetchTopics() {
   };
   
   try {
-    const res = await fetch("http://127.0.0.1:1337/api/topics");
+    const res = await fetch("http://127.0.0.1:1337/api/topics",{ cache: 'no-store' });
     const response = await res.json();
     return response;
   } catch (err) {
