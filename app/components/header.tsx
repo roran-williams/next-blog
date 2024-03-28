@@ -1,12 +1,17 @@
-import React from "react";
-import Topics from "./topics";
+"use client";
+import React, { useContext, useLayoutEffect } from "react";
+import Topic from "./topics";
+import { TopicContext } from "@/context/TopicContext";
 import Link from "next/link";
 
-interface HeaderProps {
-  handleTopicClick: (topic: string) => void;
-}
 
-const Header: React.FC<HeaderProps> = (props) => {
+const Header = ({ topics }: any) => {
+  const { changeTopic } = useContext(TopicContext);
+
+  useLayoutEffect(() => {
+    changeTopic(topics?.data[0].attributes?.topic);
+  }, []);
+
   return (
     <div className="container">
       <header className="border-bottom lh-1 py-3">
@@ -47,8 +52,18 @@ const Header: React.FC<HeaderProps> = (props) => {
           </div>
         </div>
       </header>
-      <Topics handleTopicClick={props.handleTopicClick}/>
-    </div>
+      <div className="container">
+        <div className="row flex-row gap-1 mb-4 w-100">
+          {/* Check if 'categories' exists and has 'data', then map over it */}
+          {topics?.data?.map((topic: any) => (
+            <div key={topic.id} className="col-auto">
+              <Topic topik={topic} /> {/* Render the Category component for each category */}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      </div>
   );
 }
 
