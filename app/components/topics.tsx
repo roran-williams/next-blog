@@ -6,20 +6,22 @@ import Link from "next/link";
 const Topic = ({ topik }: any) => {
   const { topic, changeTopic } = useContext(TopicContext);
   return (
+    <Link href={"/categories"} style={{textDecoration:"none" }}>
     <div className="nav-scroller py-1 mb-3 border-bottom">
-      <nav className="nav nav-underline justify-content-between">
-        <Link href="/categories">
+      <nav className="nav justify-content-between">
           <div
-            className={`p-4 rounded-lg shadow cursor-pointer ${
-              topik.attributes.name === topic ? "bg-light text-dark" : "bg-warning text-white"
+            className={`p-2 rounded cursor-pointer ${
+              topik.attributes.name === topic ?  "bg-warning text-light nav-item nav-link link-body-emphasis active" :
+               "nav-item nav-link link-body-emphasis "
             }`}            
             onClick={() => changeTopic(topik.attributes.name)}
           >
             {topik.attributes.name}
           </div>
-          </Link>
+          
       </nav>
     </div>
+    </Link>
   );
 };
 
