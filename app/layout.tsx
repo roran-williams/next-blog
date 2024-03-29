@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { TopicProvider } from "@/context/TopicContext";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Footer from "./components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -40,10 +41,12 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+      
       <TopicProvider>
         <Header topics={topics}/>
         {children}
       </TopicProvider>
+      <Footer />
       </body>
     </html>
   );

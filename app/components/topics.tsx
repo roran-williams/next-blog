@@ -7,10 +7,10 @@ const Topic = ({ topik }: any) => {
   const { topic, changeTopic } = useContext(TopicContext);
   return (
     <Link href={"/categories"} style={{textDecoration:"none" }}>
-    <div className="nav-scroller py-1 mb-3 border-bottom">
+    <div className="nav-scroller py-1 border-bottom">
       <nav className="nav justify-content-between">
           <div
-            className={`p-2 rounded cursor-pointer ${
+            className={` p-1 rounded cursor-pointer ${
               topik.attributes.name === topic ?  "bg-warning text-light nav-item nav-link link-body-emphasis active" :
                "nav-item nav-link link-body-emphasis "
             }`}            

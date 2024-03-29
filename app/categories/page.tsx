@@ -1,5 +1,5 @@
 import "../globals.css";
-import Blogs from "../components/posts";
+import Blogs from "./category-page";
 
 async function fetchBlogs() {
   const options = {
@@ -25,9 +25,8 @@ const Home = async () => {
   return (
     <>
       <main className="container">
-        <div className="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary ">
           <Blogs blogs={blogs} />
-        </div>
+      
       </main>
     </>
   );
