@@ -24,13 +24,15 @@ async function fetchBlog(id: number) {
 const BlogPage = async ({ params }: any) => {
   const blog = await fetchBlog(params.slug);
 
-  // const imageUrl ="http://127.0.0.1:1337" + blog.data.attributes.img.data.attributes.url;
-
   return (
     <div className="max-w-3xl mx-auto p-4">
       <Link href="/">{"< Back"}</Link>
       <div className="relative w-full h-96 overflow-hidden rounded-lg mt-5">
-        <Image src={""} alt={""} />
+        <Image 
+        src={blog?.attributes?.image?.data?.attributes?.url?`http://localhost:1337${blog?.attributes?.image?.data?.attributes?.url}`:"http://127.0.0.1:1337/uploads/premium_photo_1663013618856_bb1036f6b95d_99f9362788.jpeg"}
+        width={100}
+        height={100}
+        alt={""} />
       </div>
       <div className="mt-4">
         <h1 className="text-3xl font-semibold">{blog.data.attributes.title}</h1>

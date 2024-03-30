@@ -11,3 +11,4 @@ const BlogFooter = () => {
 };
 
 export default BlogFooter;
+
