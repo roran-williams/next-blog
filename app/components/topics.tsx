@@ -6,7 +6,7 @@ import Link from "next/link";
 const Topic = ({ topik }: any) => {
   const { topic, changeTopic } = useContext(TopicContext);
   return (
-    <Link href={"/categories"} style={{textDecoration:"none" }}>
+    <Link href={`/categories/${topik.attributes.name}`} style={{textDecoration:"none" }}>
     <div className="nav-scroller py-1 border-bottom">
       <nav className="nav justify-content-between">
           <div

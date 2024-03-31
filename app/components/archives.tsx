@@ -1,45 +1,27 @@
+"use client";
+import { DateContext } from "@/context/DateContext";
+import React, { useContext } from "react";
+import Link from "next/link";
 
-const Archives = () => {
+const Archives = ({ dates }: any) => {
+  const { changeDate } = useContext(DateContext);
+
+  const handleDateClick = (publishedAt: Date) => {
+    changeDate(publishedAt);
+  };
+
   return (
     <div className="p-4">
-      <h4 className="fst-italic">Archives</h4>
+      <h4 className="fst-italic">Time Travel To ? </h4>
       <ol className="list-unstyled mb-0">
-        <li>
-          <a href="#">March 2021</a>
-        </li>
-        <li>
-          <a href="#">February 2021</a>
-        </li>
-        <li>
-          <a href="#">January 2021</a>
-        </li>
-        <li>
-          <a href="#">December 2020</a>
-        </li>
-        <li>
-          <a href="#">November 2020</a>
-        </li>
-        <li>
-          <a href="#">October 2020</a>
-        </li>
-        <li>
-          <a href="#">September 2020</a>
-        </li>
-        <li>
-          <a href="#">August 2020</a>
-        </li>
-        <li>
-          <a href="#">July 2020</a>
-        </li>
-        <li>
-          <a href="#">June 2020</a>
-        </li>
-        <li>
-          <a href="#">May 2020</a>
-        </li>
-        <li>
-          <a href="#">April 2020</a>
-        </li>
+        {dates?.map((date: any,index:any) => (
+          <li key={index}>
+            <Link onClick={() => handleDateClick(date)}
+             href={`/categories/${date}`}>
+                {date}
+            </Link>
+          </li>
+        ))}
       </ol>
     </div>
   );

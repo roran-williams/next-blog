@@ -1,32 +1,11 @@
-"use client";
-import React from "react";
 import ContentRow from "./content-row";
 import TitleRow from "./title-row";
 import BlogFooter from "./blog-footer";
-interface FeaturePostProps {
-  topic: string;
-}
 
-interface Content {
-  firstRow: {
-    title: string;
-    description: string;
-    image: string;
-  };
-  thirdRow: {
-    columnOne: {
-      paragraphs: string[];
-    };
-    columnTwo: {
-      paragraphs: string[];
-    };
-  };
-}
-
-const FeaturePost: React.FC<FeaturePostProps> = (props) => {
+const Blog = ({blog}:any) => {
   return (
     <div>
-      <TitleRow />
+      <TitleRow blog={blog}/>
       <hr />
       <ContentRow />
       <hr />
@@ -35,4 +14,4 @@ const FeaturePost: React.FC<FeaturePostProps> = (props) => {
   );
 };
 
-export default FeaturePost;
+export default Blog;

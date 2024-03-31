@@ -1,5 +1,4 @@
-import "../globals.css";
-import Blogs from "./category-page";
+import Blogs from "./categorized";
 
 async function fetchBlogs() {
   const options = {
