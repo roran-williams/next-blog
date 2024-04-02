@@ -37,7 +37,7 @@ const uniqueArchives = archives.filter((blog: any) =>
   const articles = blogs.data.filter((blog: any) => {
     if (blog.attributes.ranking ==="article" ){return blog;}
   }).reverse();
-const arrangedArticles=articles.slice(0,4);
+// const arrangedArticles=articles; //.slice(0,4);
 const arrangedRecentPosts = articles.slice(4,7);
 return (
     <>
@@ -53,8 +53,10 @@ return (
     <div className="row g-5">
           <div className="col-md-8">
           <h3 className="pb-4 mb-4 fst-italic border-bottom">From the Firehouse</h3>
-          <Article blog={arrangedArticles}/>  
+          <div style={{ maxHeight: '1200px', overflowY: 'auto' }}>
+          <Article blog={articles}/>  
           <ArticleNavigation />
+          </div>
           </div>
           <div className="col-md-4">
             <div className="position-sticky" style={{ top: "2rem" }}>

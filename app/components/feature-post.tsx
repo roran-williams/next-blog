@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import BlogTopics from "./blog-topics";
-import BlogAuthors from "./blog-authors"
+import BlogAuthors from "./blog-authors";
 
 export default function FeaturePost({ blog }: any) {
  

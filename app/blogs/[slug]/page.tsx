@@ -1,12 +1,11 @@
 import Blog from "./blog-page";
-
 async function fetchBlog(id: number) {
   const options = {
     headers: {
       Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
     },
   };
-
+  
   try {
     const res = await fetch(
       `http://127.0.0.1:1337/api/blogs/${id}?populate=*`,
@@ -19,10 +18,12 @@ async function fetchBlog(id: number) {
   }
 }
 
-
 const BlogPage = async ({ params }: any) => {
   const blog = await fetchBlog(params.slug);
-  return <Blog blog={blog} />
+  return (
+  <div >
+  <Blog blog={blog} />
+  </div>);
 }
   
 
