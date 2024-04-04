@@ -12,7 +12,7 @@ import BlogAuthors from "./blog-authors";
       <div className="text-sm active">
       </div>
       <p>{article?.attributes?.description?.substring(0, 600)} 
-      <Link href={`/blog/${article?.id}`} > Continue reading {"..."} </Link></p>
+      <Link href={`/blogs/${article?.id}`} > Continue reading {"..."} </Link></p>
       
 
     </article>
